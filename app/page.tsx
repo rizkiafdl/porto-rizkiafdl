@@ -3,7 +3,7 @@ import { CtaSection } from "@/components/home/cta-section"
 import { HeroSection } from "@/components/home/hero-section";
 import { ExprienceSection } from "@/components/home/exprience-section";
 
-import Image from "next/image";
+
 import { ShowcaseSection } from "@/components/home/showcase-section";
 
 export default function Home() {

@@ -2,7 +2,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
-import { Vortex } from "@/components/ui/vortex";
+
 export function HeroSection() {
     return (
         <main className=" items-center justify-center">

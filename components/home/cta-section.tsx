@@ -1,7 +1,6 @@
 import React from 'react'
 import { WobbleCard } from "@/components/ui/wobble-card";
 
-import Image from 'next/image';
 export const CtaSection = () => {
     return (
         <div className="grid grid-cols-3 gap-3 max-w-7xl mx-auto w-full p-8">
