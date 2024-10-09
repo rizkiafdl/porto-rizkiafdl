@@ -14,9 +14,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
-import Link from "next/link"; // Ensure Link is imported
+// Ensure Link is imported
 
 export function ContactMe() {
     const [email, setEmail] = useState<string>('');

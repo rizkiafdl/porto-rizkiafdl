@@ -1,7 +1,6 @@
 
 "use client";
 import { motion } from "framer-motion";
-import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { WavyBackground } from "../ui/wavy-background";
 
 export function HeroSection() {
