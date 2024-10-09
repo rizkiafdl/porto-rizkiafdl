@@ -1,84 +1,72 @@
 "use client";
+import React, { useState } from 'react';
+import { IoIosMenu } from "react-icons/io";
 
-import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-export const NavigationHome = () => {
-    const [navbarVisible, setNavbarVisible] = useState(true);
+export const NavbarHome = () => {
+    const [isClick, setIsClick] = useState<Boolean>(false);
 
-    const toggleNavbarVisibility = () => {
-        setNavbarVisible(!navbarVisible);
+    const toggleNavbar = (): void => {
+        setIsClick(!isClick);
     };
 
     return (
-        <div className="relative w-full  items-center justify-center">
-            {/* Button to toggle navbar visibility */}
-            <Button
-                onClick={toggleNavbarVisibility}
-                className="fixed top-4 right-4 bg-black text-white px-4 py-2 rounded-full shadow-md z-50"
-            >
-                {navbarVisible ? "Hide Navbar" : "Show Navbar"}
-            </Button>
-            {/* Conditionally render the Navbar */}
-            {navbarVisible && <Navbar />}
-        </div>
+        <>
+            <nav className='bg-black z-50 relative'> {/* z-index 50 to ensure it appears on top */}
+                <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+                    <div className='flex items-center justify-between h-16'>
+                        <div className='flex items-center'>
+                            <div className='flex-shrink-0'>
+                                <a href='/' className='text-white font-bold text-3xl'>
+                                    rizkiafdl.
+                                </a>
+                            </div>
+                        </div>
+                        {/* Desktop Navbar */}
+                        <div className='hidden md:block'>
+                            <div className='ml-4 flex items-center space-x-4'>
+                                <a href='/' className='text-white hover:bg-white hover:text-black rounded-lg p-2'>
+                                    Home
+                                </a>
+                                <a href='/' className='text-white hover:bg-white hover:text-black rounded-lg p-2'>
+                                    About
+                                </a>
+                                <a href='/' className='text-white hover:bg-white hover:text-black rounded-lg p-2'>
+                                    Services
+                                </a>
+                                <a href='/' className='text-white hover:bg-white hover:text-black rounded-lg p-2'>
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                        {/* Mobile Sidebar */}
+                        {isClick ? (
+                            <div className='md:hidden absolute top-16 right-0 h-40 w-32 bg-white rounded-b-xl stext-center text-center z-50'>
+                                <a href='/' className='block text-black hover:bg-black hover:text-white rounded-sm p-2'>
+                                    Home
+                                </a>
+                                <a href='/' className='block text-black hover:bg-black hover:text-white rounded-sm p-2'>
+                                    About
+                                </a>
+                                <a href='/' className='block text-black hover:bg-black hover:text-white rounded-sm p-2'>
+                                    Services
+                                </a>
+                                <a href='/' className='block text-black hover:bg-black hover:text-white rounded-sm p-2'>
+                                    Contact
+                                </a>
+                            </div>
+                        ) : null}
+                        {/* Hamburger Button */}
+                        <div className='md:hidden flex items-center'>
+                            <button
+                                className='inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
+                                onClick={toggleNavbar}
+                            >
+                                <IoIosMenu size={24} />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </>
     );
 };
-
-function Navbar({ className }: { className?: string }) {
-    const [active, setActive] = useState<string | null>(null);
-
-    return (
-        <div
-            className={cn("fixed top-5 inset-x-0 max-w-2xl mx-auto z-50", className)}
-        >
-            <Menu setActive={setActive}>
-                <MenuItem setActive={setActive} active={active} item="Home">
-                    <div className="flex flex-col space-y-4 text-sm">
-                        <HoveredLink href="/web-dev">Web Development</HoveredLink>
-                        <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-                        <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-                        <HoveredLink href="/branding">Branding</HoveredLink>
-                    </div>
-                </MenuItem>
-                <MenuItem setActive={setActive} active={active} item="Social Media">
-                    <div className="text-sm grid grid-cols-2 gap-10 p-4">
-                        <ProductItem
-                            title="Algochurn"
-                            href="https://algochurn.com"
-                            src="https://assets.aceternity.com/demos/algochurn.webp"
-                            description="Prepare for tech interviews like never before."
-                        />
-                        <ProductItem
-                            title="Tailwind Master Kit"
-                            href="https://tailwindmasterkit.com"
-                            src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-                            description="Production ready Tailwind css components for your next project"
-                        />
-                        <ProductItem
-                            title="Moonbeam"
-                            href="https://gomoonbeam.com"
-                            src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-                            description="Never write from scratch again. Go from idea to blog in minutes."
-                        />
-                        <ProductItem
-                            title="Rogue"
-                            href="https://userogue.com"
-                            src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-                            description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-                        />
-                    </div>
-                </MenuItem>
-                <MenuItem setActive={setActive} active={active} item="Contact Me!">
-                    <div className="flex flex-col space-y-4 text-sm">
-                        <HoveredLink href="/hobby">Hobby</HoveredLink>
-                        <HoveredLink href="/individual">Individual</HoveredLink>
-                        <HoveredLink href="/team">Team</HoveredLink>
-                        <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-                    </div>
-                </MenuItem>
-            </Menu>
-        </div>
-    );
-}

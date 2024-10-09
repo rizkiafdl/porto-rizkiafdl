@@ -1,67 +1,131 @@
-import React from 'react'
+import React from 'react';
 import { WobbleCard } from "@/components/ui/wobble-card";
+import { SiReaddotcv } from "react-icons/si";
+import { FaRegFilePdf, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
+import { TypewriterEffect } from '../ui/typewriter-effect';
+import Link from 'next/link';
+
+// Data object containing content for each card
+const ctaData = [
+    {
+        title: "Curriculum Vitae",
+        description: "My professional document that describes my journey as a developer.",
+        bgClass: "bg-purple-800",
+        containerClass: "col-span-1 ",
+        minHeight: "min-h-[200px] sm:min-h-[350px] lg:min-h-[400px]",
+        icon: <SiReaddotcv size={60} />,
+        link: {
+            url: "https://www.instagram.com/rizkiafdl",
+            title: "CV Link"
+        },
+    },
+    {
+        title: "PDF Portfolio",
+        description: "View my PDF portfolio showcasing my work and skills.",
+        bgClass: "bg-red-700",
+        containerClass: "col-span-1",
+        minHeight: "min-h-[200px] sm:min-h-[350px] lg:min-h-[400px]",
+        icon: <FaRegFilePdf size={60} />,
+        link: {
+            url: "https://www.instagram.com/rizkiafdl",
+            title: "Portofolio Link"
+        },
+    },
+    {
+        title: "Instagram",
+        description: "Follow me on Instagram to see more of my work.",
+        bgClass: "bg-pink-900",
+        containerClass: "col-span-1",
+        minHeight: "min-h-[200px] sm:min-h-[350px] lg:min-h-[400px]",
+        icon: <FaInstagram size={60} />,
+        link: {
+            url: "https://www.instagram.com/rizkiafdl",
+            title: "Instagram"
+        },
+    },
+    {
+        title: "LinkedIn",
+        description: "Connect with me on LinkedIn to stay updated on my career.",
+        bgClass: "bg-blue-900",
+        containerClass: "col-span-1",
+        minHeight: "min-h-[200px] sm:min-h-[350px] lg:min-h-[400px]",
+        icon: <FaLinkedinIn size={60} />,
+        link: {
+            url: "https://www.linkedin.com/rizkiafdl",
+            title: "LinkedIn"
+        },
+    },
+    {
+        title: "GitHub",
+        description: "Check out my GitHub for more open-source projects.",
+        bgClass: "bg-neutral-900",
+        containerClass: "col-span-1",
+        minHeight: "min-h-[200px] sm:min-h-[350px] lg:min-h-[400px]",
+        icon: <FaGithub size={60} />,
+        link: {
+            url: "https://github.com/rizkiafdl",
+            title: "GitHub"
+        },
+    },
+
+];
+
+const words = [
+    {
+        text: "Get ",
+    },
+    {
+        text: "To ",
+    },
+    {
+        text: "Know",
+    },
+    {
+        text: "Me!",
+        className: "text-blue-500 dark:text-blue-500",
+    },
+];
 
 export const CtaSection = () => {
     return (
-        <div className="grid grid-cols-3 gap-3 max-w-7xl mx-auto w-full p-8">
-            <WobbleCard
-                containerClassName="col-span-1 lg:col-span-2 h-full bg-pink-800 min-h-[4=00px]"
-                className=""
-            >
-                <div className="max-w-xs">
-                    <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                        Curriculum vitae
-                    </h2>
-                    <p className="mt-4 text-left  text-base/6 text-neutral-200">
-                        Take a look at my profesional document that describe my journey as a developer.
-                    </p>
+        <div className='flex flex-col justify-center items-center space-y-32'>
+            <div>
+                <div className='max-w-7xl mx-auto pt-32 px-4 md:px-8 lg:px-10 text-7xl md:text-4xl lg:text-7xl font-bold text-neutral-200 dark:text-white leading-relaxed lg:leading-snug text-center'>
+                    <TypewriterEffect words={words} />
                 </div>
-            </WobbleCard>
-
-            <WobbleCard containerClassName="col-span-1 lg:col-span- min-h-[400px]">
-                <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                    PDF Portofolio
-                </h2>
-                <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-                    If someone yells “stop!”, goes limp, or taps out, the fight is over.
-                </p>
-
-            </WobbleCard>
-
-            <WobbleCard containerClassName="col-span-1  bg-blue-900 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
-                <div className="max-w-sm">
-                    <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                        Instagram
-                    </h2>
-                    <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-                        With over 100,000 mothly active bot users, Gippity AI is the most
-                        popular AI platform for developers.
-                    </p>
-                </div>
-            </WobbleCard>
-            <WobbleCard containerClassName="col-span-1  bg-blue-900 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
-                <div className="max-w-sm">
-                    <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                        LinkedIn
-                    </h2>
-                    <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-                        With over 100,000 mothly active bot users, Gippity AI is the most
-                        popular AI platform for developers.
-                    </p>
-                </div>
-            </WobbleCard>
-            <WobbleCard containerClassName="col-span-1  bg-blue-900 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
-                <div className="max-w-sm">
-                    <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                        Github
-                    </h2>
-                    <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-                        With over 100,000 mothly active bot users, Gippity AI is the most
-                        popular AI platform for developers.
-                    </p>
-                </div>
-            </WobbleCard>
-
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto w-full p-4 sm:p-6 lg:p-8">
+                {ctaData.map((item, index) => (
+                    <Link href={item.link.url} passHref>
+                        <WobbleCard
+                            key={index}
+                            containerClassName={`${item.containerClass} ${item.bgClass} ${item.minHeight}`}
+                        >
+                            <div className="max-w-sm flex flex-col justify-center items-center space-y-6 text-center">
+                                <Link href={item.link.url} passHref legacyBehavior>
+                                    <h2 className="text-base  hover:text-blue-500 sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold tracking-tight text-white">
+                                        {item.title}
+                                    </h2>
+                                </Link>
+                                <div className='flex flex-col items-center space-y-8'>
+                                    <p className="mt-2 sm:mt-4 text-sm sm:text-base text-neutral-200 max-h-16 sm:max-h-20 overflow-hidden text-ellipsis">
+                                        {item.description}
+                                    </p>
+                                    <div className='text-white'>
+                                        {item.icon}
+                                    </div>
+                                    <Link href={item.link.url} passHref legacyBehavior>
+                                        <div className='text-sm text-white hover:text-blue-500 hover:underline'>
+                                            {item.link.title}
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
+                        </WobbleCard>
+                    </Link>
+                ))}
+            </div>
         </div>
-    )
-}
+    );
+};
