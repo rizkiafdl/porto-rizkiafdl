@@ -12,7 +12,7 @@ const ctaData = [
         title: "Curriculum Vitae",
         description: "My professional document that describes my journey as a developer.",
         bgClass: "bg-purple-800",
-        containerClass: "col-span-1 ",
+        containerClass: "col-span-1",
         minHeight: "min-h-[200px] sm:min-h-[350px] lg:min-h-[400px]",
         icon: <SiReaddotcv size={60} />,
         link: {
@@ -29,7 +29,7 @@ const ctaData = [
         icon: <FaRegFilePdf size={60} />,
         link: {
             url: "https://www.instagram.com/rizkiafdl",
-            title: "Portofolio Link"
+            title: "Portfolio Link"
         },
     },
     {
@@ -68,7 +68,6 @@ const ctaData = [
             title: "GitHub"
         },
     },
-
 ];
 
 const words = [
@@ -97,17 +96,14 @@ export const CtaSection = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto w-full p-4 sm:p-6 lg:p-8">
                 {ctaData.map((item, index) => (
-                    <Link href={item.link.url} passHref>
+                    <Link key={index} href={item.link.url} passHref>
                         <WobbleCard
-                            key={index}
                             containerClassName={`${item.containerClass} ${item.bgClass} ${item.minHeight}`}
                         >
                             <div className="max-w-sm flex flex-col justify-center items-center space-y-6 text-center">
-                                <Link href={item.link.url} passHref legacyBehavior>
-                                    <h2 className="text-base  hover:text-blue-500 sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold tracking-tight text-white">
-                                        {item.title}
-                                    </h2>
-                                </Link>
+                                <h2 className="text-base hover:text-blue-500 sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold tracking-tight text-white">
+                                    {item.title}
+                                </h2>
                                 <div className='flex flex-col items-center space-y-8'>
                                     <p className="mt-2 sm:mt-4 text-sm sm:text-base text-neutral-200 max-h-16 sm:max-h-20 overflow-hidden text-ellipsis">
                                         {item.description}
@@ -115,11 +111,9 @@ export const CtaSection = () => {
                                     <div className='text-white'>
                                         {item.icon}
                                     </div>
-                                    <Link href={item.link.url} passHref legacyBehavior>
-                                        <div className='text-sm text-white hover:text-blue-500 hover:underline'>
-                                            {item.link.title}
-                                        </div>
-                                    </Link>
+                                    <div className='text-sm text-white hover:text-blue-500 hover:underline'>
+                                        {item.link.title}
+                                    </div>
                                 </div>
                             </div>
                         </WobbleCard>
