@@ -1,7 +1,14 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+import Modal from "@/components/ui/modal"; // Import Modal
+
+interface CardData {
+    category: string;
+    title: string;
+    src: string;
+    content: React.ReactNode; // Define content as a ReactNode
+}
 
 export function ProjectCarousel() {
     const cards = data.map((card, index) => (
@@ -18,74 +25,66 @@ export function ProjectCarousel() {
     );
 }
 
-const DummyContent = () => {
-    return (
-        <>
-            {[...new Array(3).fill(1)].map((_, index) => {
-                return (
-                    <div
-                        key={"dummy-content" + index}
-                        className="bg-neutral-800 p-6 md:p-14 rounded-3xl mb-4 "
-                    >
-                        <p className="text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-                            <span className="font-bold text-neutral-200">
-                                The first rule of Apple club is that you boast about Apple club.
-                            </span>{" "}
-                            Keep a journal, quickly jot down a grocery list, and take amazing
-                            class notes. Want to convert those notes to text? No problem.
-                            Langotiya jeetu ka mara hua yaar is ready to capture every
-                            thought.
-                        </p>
-                        <Image
-                            src="https://assets.aceternity.com/macbook.png"
-                            alt="Macbook mockup from Aceternity UI"
-                            height="500"
-                            width="500"
-                            className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-                        />
-                    </div>
-                );
-            })}
-        </>
-    );
-};
+const data: CardData[] = [
+    {
+        category: "Website Development",
+        title: "NETFLIX Clone MERN Stack",
+        src: "/Project/Netflix.png",
+        content: (
+            <Modal
+                title="NETFLIX Clone MERN Stack"
+                description="Project ini merupakan implementasi full-stack yang memanfaatkan berbagai teknologi untuk membangun aplikasi web secara menyeluruh. React digunakan untuk membangun antarmuka pengguna yang interaktif, sementara Express.js berfungsi sebagai backend untuk menangani logika server, seperti fitur favorit film dan manajemen pengguna. Firebase diintegrasikan untuk autentikasi dan otorisasi, memastikan manajemen pengguna yang aman dan efisien. Data yang dihasilkan, seperti informasi film dan link video, diambil dari TMDB Movie API dan disimpan dalam MongoDB, yang dipilih karena fleksibilitasnya dalam menangani data tanpa skema yang kaku. Semua data pengguna, yang diidentifikasi melalui Firebase, juga disimpan di MongoDB, memungkinkan manajemen informasi yang efisien. Proyek ini memberikan pemahaman menyeluruh tentang pengembangan aplikasi web dari sisi front-end hingga back-end, termasuk keamanan dan praktik terbaik dalam pengelolaan data."
+                imageSrc="/Project/Netflix.png"
+            />
+        ),
+    },
+    {
+        category: "Website Development",
+        title: "World Country Information Hub",
+        src: "/Project/WorldCountry.png",
+        content: (
+            <Modal
+                title="World Country Information Hub"
+                description="Project ini merupakan sebuah aplikasi web yang menampilkan informasi dari REST API World Country dengan menggunakan React sebagai framework front-end. Aplikasi ini dirancang dengan tampilan yang menarik dan interaktif, di mana pengguna dapat dengan mudah menjelajahi dan mencari informasi tentang berbagai negara. Visualisasi globe yang interaktif dan fitur pencarian dengan filter dirancang untuk memberikan pengalaman yang intuitif dan mudah dipahami. Melalui project ini, user memperdalam pemahaman tentang penggunaan TypeScript, sekaligus meningkatkan keterampilan dalam merancang antarmuka yang user-friendly dan interaktif."
+                imageSrc="/Project/WorldCountry.png"
+            />
+        ),
+    },
+    {
+        category: "Data Science",
+        title: "Diabetes Prediction Website Application",
+        src: "/Project/DiabetesPredict.png",
+        content: (
+            <Modal
+                title="Diabetes Prediction Website Application"
+                description="Berdasarkan penelitian saya, diabetes merupakan salah satu penyakit yang paling banyak diderita di Indonesia. Penyebabnya sangat beragam, tetapi saya ingin fokus pada dua masalah utama, yaitu aksesibilitas dan biaya yang tinggi untuk pengecekan rutin. Hal ini menginspirasi saya untuk menciptakan solusi yang lebih terjangkau dan mudah diakses oleh masyarakat luas, yaitu sebuah aplikasi berbasis web yang dapat membantu masyarakat dalam melakukan diagnosa awal penyakit diabetes. Aplikasi ini memanfaatkan teknologi pengolahan data dan machine learning untuk menganalisis data yang diberikan oleh pengguna, seperti riwayat kesehatan, BMI, aktivitas fisik, dan faktor risiko lainnya.."
+                imageSrc="/Project/DiabetesPredict.png"
+            />
+        ),
+    },
+    {
+        category: "Data Science",
+        title: "Indonesia Visitor Visualization",
+        src: "/Project/DataScience_indo.png",
+        content: (
+            <Modal
+                title="Indonesia Visitor Visualization"
+                description="Project ini merupakan bagian dari tugas mata kuliah Data Mining & Visualisasi, di mana saya dan tim menggunakan data dari https://data.aseanstats.org/. Kami melakukan pre-processing pada data agar lebih mudah diinterpretasi, lalu memvisualisasikannya menggunakan bahasa pemrograman R di R Studio. Setelah itu, kami mengumpulkan berbagai insight yang diperoleh dari proses analisis dan menyajikannya dalam format poster untuk dipresentasikan. Melalui project ini, saya belajar pentingnya kolaborasi, mulai dari menentukan topik penelitian, mencari data yang relevan, mempersiapkan data sesuai kebutuhan, hingga memvisualisasikannya secara efektif."
+                imageSrc="/Project/DataScience_indo.png"
+            />
+        ),
+    },
+    {
+        category: "UI/UX",
+        title: "Biodiverse",
+        src: "/Project/Biodiverse.png",
+        content: (
+            <Modal
+                title="Biodiverse"
+                description="Sebagai UI/UX Designer dalam proyek ini, saya ditugaskan untuk merancang desain aplikasi yang akan menjadi salah satu media dan navigator bagi pengguna selama menjalani pameran ini. Pameran ini bertujuan untuk mengembangkan sifat entrepreuner pada peserta melalui berbagai media interaktif seperti tebak visual, tebak aroma, tebak suara dan penggunaan indra lainnya. Tantangan yang saya rasakan adalah memastikan bahwa pengalaman pengguna tetap intuitif dan menyenangkan, sehingga mereka dapat dengan mudah menavigasi berbagai kegiatan dan media yang disediakan. Untuk memahami kebutuhan pengguna, saya melakukan survei pengguna, studi kasus dan kolaborasi antar team, lalu saya menemukan kesimpulan yaitu design harus mudah di navigasi, merangsang, dan pemberian informasi yang jelas, oleh karena itu saya memilih warna yang kontras lalu text yang minim tetapi dengan hirarki design yang jelas dan gambar-gambar pendukung yang membantu merepresentasikan sebuah informasi  yang ingin disampaikan."
+                imageSrc="/Project/Biodiverse.png"
+            />
+        ),
+    },
 
-const data = [
-    {
-        category: "Artificial Intelligence",
-        title: "You can do more with AI.",
-        src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        content: <DummyContent />,
-    },
-    {
-        category: "Productivity",
-        title: "Enhance your productivity.",
-        src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        content: <DummyContent />,
-    },
-    {
-        category: "Product",
-        title: "Launching the new Apple Vision Pro.",
-        src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        content: <DummyContent />,
-    },
-
-    {
-        category: "Product",
-        title: "Maps for your iPhone 15 Pro Max.",
-        src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        content: <DummyContent />,
-    },
-    {
-        category: "iOS",
-        title: "Photography just got better.",
-        src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        content: <DummyContent />,
-    },
-    {
-        category: "Hiring",
-        title: "Hiring for a Staff Software Engineer",
-        src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        content: <DummyContent />,
-    },
 ];

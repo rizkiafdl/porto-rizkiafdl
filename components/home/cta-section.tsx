@@ -16,7 +16,7 @@ const ctaData = [
         minHeight: "min-h-[200px] sm:min-h-[350px] lg:min-h-[400px]",
         icon: <SiReaddotcv size={60} />,
         link: {
-            url: "https://www.instagram.com/rizkiafdl",
+            url: "https://drive.google.com/file/d/1K7NHqlJuuJGaTy-ZzFuyYEtmcaLiV2UJ/view?usp=sharing",
             title: "CV Link"
         },
     },
@@ -28,7 +28,7 @@ const ctaData = [
         minHeight: "min-h-[200px] sm:min-h-[350px] lg:min-h-[400px]",
         icon: <FaRegFilePdf size={60} />,
         link: {
-            url: "https://www.instagram.com/rizkiafdl",
+            url: "https://drive.google.com/file/d/1RILwHM7B9vfao8o4jj5BEq6WsHjSHQ3I/view?usp=sharinghttps://",
             title: "Portfolio Link"
         },
     },
@@ -52,7 +52,7 @@ const ctaData = [
         minHeight: "min-h-[200px] sm:min-h-[350px] lg:min-h-[400px]",
         icon: <FaLinkedinIn size={60} />,
         link: {
-            url: "https://www.linkedin.com/rizkiafdl",
+            url: "https://www.linkedin.com/in/rizkiafdl/",
             title: "LinkedIn"
         },
     },
